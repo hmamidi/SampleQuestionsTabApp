@@ -1,0 +1,93 @@
+.app {
+    font-family: sans-serif;
+    display: flex;
+    align-items: left; 
+    height: 80vh;
+    flex-direction: column;
+    margin: 15px ;
+  }
+  .sign {
+    font-size: 15px;
+  }
+  .accordian {
+    margin-top: 2px;
+    padding: 2px 2px;
+    border: 1px solid rgb(187, 235, 243);
+    border-radius: 2ch;
+  }
+  .add-answer {
+    margin-left: 20px;
+    margin-top: 2px;
+    align-items: right;
+    font-weight: bold;
+    font-size: 10px;
+    border-radius: 2ch;
+  }
+  .answer {
+    margin-left: 20px;
+    width: 90%;
+    height: 40px;
+    border-radius: 2ch;
+    margin-top: 2px;
+    align-items: right;
+    font-size: 12px;
+  }
+  .accordian-header {
+    font-weight: 250;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(187, 235, 243);
+    border-radius: 3ch;
+    justify-content: space-between;
+    padding: 5px 5px;
+    margin-top: 10px;
+    background-color: rgb(235, 246, 250);
+  }
+  .accordian-body {
+    font-weight: 250;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(252, 253, 253);
+    border-radius: 3ch;
+    justify-content: space-between;
+    padding: 5px 5px;
+    margin-left: 20px;
+    margin-top: 2px;
+  }
+  .chat-box {
+    height: 60px;
+    position: absolute ;
+    width: 75%;
+    margin : 15px;
+    display : flex;
+  }
+  .textbox {
+    height: 40px;
+    margin: 20px;
+    width : 80%;
+    border-radius: 2ch;
+  }
+  .button {
+    margin: 20px;
+    height: 40px;
+    width: 10%;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: -10px;
+    border-radius: 2ch;
+    background-color: turquoise;
+  }
+  .ansbutton {
+    margin-left: 20px;
+    margin-top: 5px;
+    height: 20px;
+    width: 10%;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 2ch;
+    background-color: turquoise;
+  }

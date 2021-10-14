@@ -41,7 +41,11 @@ export function Welcome(props) {
   const { isInTeams } = useTeamsFx();
   const userProfile = useData(async () => {
     const credential = new TeamsUserCredential();
-    return isInTeams ? await credential.getUserInfo() : undefined;
+    let res = isInTeams ? await credential.getUserInfo() : undefined;
+    console.log("user Info : " + JSON.stringify(res));
+    let token = isInTeams ? await credential.getToken() : undefined;
+    console.log("token : " + JSON.stringify(token));
+    return res;
   })?.data;
   const userName = userProfile ? userProfile.displayName : "";
   return (

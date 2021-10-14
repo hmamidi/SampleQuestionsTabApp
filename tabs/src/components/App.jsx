@@ -14,7 +14,7 @@ import TabConfig from "./TabConfig";
  * of the app.
  */
 export default function App() {
-  const { theme, loading } = useTeamsFx();
+  const { theme, loading } = useTeamsFx();  
   return (
     <Provider theme={theme || teamsTheme} styles={{ backgroundColor: "#eeeeee" }}>
       <Router>
