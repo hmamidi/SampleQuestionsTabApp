@@ -19,10 +19,10 @@ app.get('/questions/all', (req, res) => {
 app.post('/question', (req, res) => {
     
     var question = req.body as IQuestion;
-    question.QuestionId = Guid.newGuid();
-    question.Answers = [];
-    question.Upvotedby = [];
-    question.Timestamp = new Date();
+    question.questionId = Guid.newGuid();
+    question.answers = [];
+    question.upvotedBy = [];
+    question.timeStamp = new Date();
 
     repo.Save(question);
 
@@ -34,8 +34,8 @@ app.post('/question/:qid/answer', (req, res) => {
     var question = repo.GetFirstOrDefault(req.params.qid);
     var answer = req.body as IAnswer;
 
-    answer.Timestamp = new Date();
-    question.Answers.push(answer);
+    answer.timeStamp = new Date();
+    question.answers.push(answer);
 
     repo.Save(question);
 
@@ -44,7 +44,7 @@ app.post('/question/:qid/answer', (req, res) => {
 
 app.post('/question/:qid/upvote/:user', (req, res) => {
     var question = repo.GetFirstOrDefault(req.params.qid);
-    question.Upvotedby.push(req.params.user);
+    question.upvotedBy.push(req.params.user);
 
     repo.Save(question);
 

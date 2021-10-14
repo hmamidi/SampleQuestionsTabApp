@@ -7,7 +7,7 @@ const myCache = new NodeCache();
 export class CacheBasedQuestionsRepository implements IQuestionsRepository {
     
     Save(question: IQuestion): boolean {
-        return myCache.set(question.QuestionId, question, 10000);
+        return myCache.set(question.questionId, question, 10000);
     }
 
     GetFirstOrDefault(questionId: string): IQuestion {
