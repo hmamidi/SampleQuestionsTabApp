@@ -4,3 +4,5 @@ node_modules
 .DS_Store
 .archive
 .archive.log
+package-lock.json
+API/dist/*
