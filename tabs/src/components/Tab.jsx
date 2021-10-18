@@ -138,10 +138,13 @@ class Tab extends React.Component {
       <div className="accordian">
       {this.state.qna.map((value, index) => {
         console.log(JSON.stringify(this.state.qna[index]));
+        if(value.user == null) {
+          value.user = "hmamidi@microsoft.com"; 
+        }
          return (<div>
            <div className="usertimestamp" >
-             <div className="left">{value.user}</div>
-             <div className="right">{value.timeStamp}</div>
+             <div className="left">{value.user.substr(0,value.user.indexOf("@"))}</div>
+             <div className="right">{(new Date(value.timeStamp)).toGMTString()}</div>
             </div>
             <div className="accord">
            <div className="accordian-header" onClick={() => {
@@ -169,7 +172,7 @@ class Tab extends React.Component {
          <div>{value.questDesc}</div>  
          <div className="sign">{(this.state.quesIdMap.has(value.questionId) && ((this.state.quesIdMap.get(value.questionId)).show)) ? '-' : '+'}</div> 
        </div>
-       <button className="thumpsUpbutton" onClick={() => {
+       <BsHandThumbsUp size="20px" onClick={() => {
           let upvoteSet = new Set(value.upvotedBy);
           if(!upvoteSet.has(this.state.user)) {
             fetch('https://teamsquestions.azurewebsites.net/question/'
@@ -183,9 +186,7 @@ class Tab extends React.Component {
                 console.log("upvote post response : " + response); 
                 });
           }
-       }}>
-       <BsHandThumbsUp size="20px" />
-       </button>
+       }} />
        <div>{value.upvotedBy.length}</div>
        </div>
        {(this.state.quesIdMap.has(value.questionId) &&
@@ -193,7 +194,7 @@ class Tab extends React.Component {
         <> {value.answers.map((ans, index) => {
           return (<>
           <div className="usertimestamp" >
-          <div className="left">{ans.user}</div>
+          <div className="left">{ans.user.substr(0,ans.user.indexOf("@"))}</div>
           <div className="right">{(new Date(ans.timeStamp)).toGMTString()}</div>
           </div>
           <div className="accordian-body">
@@ -253,9 +254,7 @@ class Tab extends React.Component {
       this.setState({newQues : e.target.value});
     }}
         placeholder=" Pls enter your question here" name="Name"/>
-        <button className="button" onClick={this.onSubmit}>
-          <AiOutlineSend size="30px" />
-          </button>
+    <AiOutlineSend size="30px" onClick={this.onSubmit} className="button" />
    </div>
    </>
 

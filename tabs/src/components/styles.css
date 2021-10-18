@@ -42,6 +42,7 @@
     width: 95%;
     font-weight: 250;
     font-size: 12px;
+    font-display: black;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -51,7 +52,7 @@
     padding: 5px 5px;
     margin: 10px;
     margin-top: -8px;
-    background-color: white;
+    background-color: rgb(197, 213, 238);
   }
   .usertimestamp {
     font-weight: 250;
@@ -79,8 +80,8 @@
     margin-top: -5px;
   }
   .chat-box {
-    width: 95%;
-    height: 15vh;
+    width: 90%;
+    height: 10vh;
     margin-right : 30px;
     margin : 25px;
     border: none;
@@ -103,8 +104,7 @@
     border-radius: 2px;
   }
   .button {
-    border: none;
-    border-radius: 2px;
+    margin-top: 20px;
   }
   .ansbutton {
     margin-left: 20px;
@@ -118,5 +118,7 @@
   .thumpsUpbutton {
     border: none;
     margin-top: -3px;
+    background-color: none;
   }
+  
  
