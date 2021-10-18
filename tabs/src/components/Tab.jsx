@@ -11,7 +11,6 @@ class Tab extends React.Component {
 
    constructor(props) {
     super(props);
-    let date = new Date();
     this.state = {
       show : false,
       newQues : null,
@@ -20,60 +19,6 @@ class Tab extends React.Component {
       qna: [],
       isLoaded : false,
       quesIdMap : new Map(),
-      questionsnanswers : [ {questionId : "1",
-               questDesc : "question 1 Desc",
-               user : "user1",
-               upvotedby: ["a", "b", "c"],
-               timestamp : date - 1000 * 60 * 60 * 24 * 2,
-               show : false,
-               isNewAns : false,
-               answers : [{ user : "user2",
-                            timestamp : date - 1000 * 60 * 60 * 24 ,
-                            answer : "q1answer1",
-                          }, 
-                          {user : "user3",
-                           timestamp : date - 1000 * 60 * 60 * 24*0.5 ,
-                           answer : "q1answer2",
-                          },
-                          {user : "user4",
-                          timestamp : date - 1000 * 60 * 60 * 24*0.5 ,
-                          answer : "q1answer3",
-                         }
-                        ],
-              },
-              {questionId : "2",
-               questDesc : "question 2 Desc",
-               user : "user2",
-               upvotedby: ["a", "b", "c"],
-               timestamp : date - 1000 * 60 * 60 * 24 * 2,
-               show : false,
-               isNewAns : false,
-               answers : [{ user : "user1",
-                            timestamp : date - 1000 * 60 * 60 * 24 ,
-                            answer : "q2answer1",
-                          }, 
-                          {user : "user3",
-                           timestamp : date - 1000 * 60 * 60 * 24*0.5 ,
-                           answer : "q2answer2",
-                          }],
-              },
-              {questionId : "3",
-               questDesc : "question 3 Desc",
-               user : "user3",
-               upvotedby: ["a", "b", "c"],
-               timestamp : date - 1000 * 60 * 60 * 24 * 2,
-               show : false,
-               isNewAns : false,
-               answers : [{ user : "user1",
-                            timestamp : date - 1000 * 60 * 60 * 24 ,
-                            answer : "q3answer1",
-                          }, 
-                          {user : "user2",
-                           timestamp : date - 1000 * 60 * 60 * 24*0.5 ,
-                           answer : "q3answer2",
-                          }],
-              }
-      ]
     };
    
   }
@@ -126,6 +71,7 @@ class Tab extends React.Component {
                     })
             })
             .then(response => {
+              this.setState({newQues : ""});
               console.log(" post response : " + response); 
             });
   }
@@ -230,6 +176,10 @@ class Tab extends React.Component {
             })
             })
             .then(response => {
+              let quesIdMap = this.state.quesIdMap;
+              quesIdMap.get(value.questionId).isNewAns = false;
+              this.setState({quesIdMap : quesIdMap});
+              this.setState({newAns : ""});
               console.log(" post response : " + response); 
             });
                      }}>
